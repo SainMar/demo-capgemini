@@ -1,0 +1,86 @@
+[
+  {
+    "id": "task-01",
+    "title": "Redesign homepage hero section",
+    "stage": "done",
+    "createdAt": "2026-06-02",
+    "completedAt": "2026-06-05"
+  },
+  {
+    "id": "task-02",
+    "title": "Write copy for services page",
+    "stage": "done",
+    "createdAt": "2026-06-02",
+    "completedAt": "2026-06-06"
+  },
+  {
+    "id": "task-03",
+    "title": "Set up analytics tracking",
+    "stage": "done",
+    "createdAt": "2026-06-03",
+    "completedAt": "2026-06-07"
+  },
+  {
+    "id": "task-04",
+    "title": "Export brand assets for client",
+    "stage": "done",
+    "createdAt": "2026-06-05",
+    "completedAt": "2026-06-09"
+  },
+  {
+    "id": "task-05",
+    "title": "Prepare Monday standup deck",
+    "stage": "done",
+    "createdAt": "2026-06-07",
+    "completedAt": "2026-06-09"
+  },
+  {
+    "id": "task-06",
+    "title": "Review and sign NDA with Nova client",
+    "stage": "done",
+    "createdAt": "2026-06-09",
+    "completedAt": "2026-06-11"
+  },
+  {
+    "id": "task-07",
+    "title": "Finalize Q2 budget report",
+    "stage": "done",
+    "createdAt": "2026-06-10",
+    "completedAt": "2026-06-13"
+  },
+  {
+    "id": "task-08",
+    "title": "Onboard new designer Léa",
+    "stage": "in-progress",
+    "createdAt": "2026-06-12",
+    "completedAt": null
+  },
+  {
+    "id": "task-09",
+    "title": "Migrate client assets to new server",
+    "stage": "in-progress",
+    "createdAt": "2026-06-13",
+    "completedAt": null
+  },
+  {
+    "id": "task-10",
+    "title": "Draft proposal for Capgemini project",
+    "stage": "in-progress",
+    "createdAt": "2026-06-16",
+    "completedAt": null
+  },
+  {
+    "id": "task-11",
+    "title": "Schedule user interviews for next sprint",
+    "stage": "todo",
+    "createdAt": "2026-06-17",
+    "completedAt": null
+  },
+  {
+    "id": "task-12",
+    "title": "Write technical spec for dashboard feature",
+    "stage": "todo",
+    "createdAt": "2026-06-18",
+    "completedAt": null
+  }
+]

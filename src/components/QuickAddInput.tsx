@@ -21,7 +21,7 @@ export function QuickAddInput({ onAdd }: QuickAddInputProps) {
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500">
+    <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 focus-within:ring-2 focus-within:ring-blue-500">
       <span aria-hidden="true" className="text-lg leading-none text-slate-400">
         +
       </span>
@@ -33,7 +33,6 @@ export function QuickAddInput({ onAdd }: QuickAddInputProps) {
         onKeyDown={handleKeyDown}
         aria-label="Add a task"
         placeholder="Add a task…"
-        autoFocus
         className="flex-1 bg-transparent text-slate-800 placeholder:text-slate-400 focus:outline-none"
       />
       <span aria-hidden="true" className="text-sm text-slate-400">

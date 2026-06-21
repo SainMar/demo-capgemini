@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './index.css'
 import { ManagerDashboard } from './components/ManagerDashboard'
-import { TeamTodo } from './components/TeamTodo'
+import { KanbanBoard } from './components/KanbanBoard'
 import type { View } from './components/ViewToggle'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       {view === 'team' ? (
-        <TeamTodo view={view} onViewChange={setView} bump={bump} />
+        <KanbanBoard view={view} onViewChange={setView} bump={bump} />
       ) : (
         <ManagerDashboard view={view} onViewChange={setView} />
       )}

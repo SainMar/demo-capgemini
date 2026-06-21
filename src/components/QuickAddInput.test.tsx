@@ -14,7 +14,7 @@ import type { Task } from '../data/store'
 import { QuickAddInput } from './QuickAddInput'
 
 function fakeTask(title: string): Task {
-  return { id: 'task-new', title, stage: 'todo', createdAt: '2026-06-20', completedAt: null }
+  return { id: 'task-new', title, stage: 'todo', createdAt: '2026-06-20', doneAt: null }
 }
 
 describe('QuickAddInput (§6 Step 4)', () => {

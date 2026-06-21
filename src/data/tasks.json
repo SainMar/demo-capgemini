@@ -1,86 +1,226 @@
 [
   {
     "id": "task-01",
-    "title": "Redesign homepage hero section",
+    "title": "Audit old brand guidelines",
     "stage": "done",
-    "createdAt": "2026-06-02",
-    "completedAt": "2026-06-05"
+    "createdAt": "2026-05-08",
+    "doneAt": "2026-05-12"
   },
   {
     "id": "task-02",
-    "title": "Write copy for services page",
+    "title": "Collect competitor screenshots",
     "stage": "done",
-    "createdAt": "2026-06-02",
-    "completedAt": "2026-06-06"
+    "createdAt": "2026-05-09",
+    "doneAt": "2026-05-14"
   },
   {
     "id": "task-03",
-    "title": "Set up analytics tracking",
+    "title": "Draft moodboard for rebrand",
     "stage": "done",
-    "createdAt": "2026-06-03",
-    "completedAt": "2026-06-07"
+    "createdAt": "2026-05-14",
+    "doneAt": "2026-05-18"
   },
   {
     "id": "task-04",
-    "title": "Export brand assets for client",
+    "title": "Set up shared asset library",
     "stage": "done",
-    "createdAt": "2026-06-05",
-    "completedAt": "2026-06-09"
+    "createdAt": "2026-05-15",
+    "doneAt": "2026-05-20"
   },
   {
     "id": "task-05",
-    "title": "Prepare Monday standup deck",
+    "title": "Write kickoff brief for Nova client",
     "stage": "done",
-    "createdAt": "2026-06-07",
-    "completedAt": "2026-06-09"
+    "createdAt": "2026-05-18",
+    "doneAt": "2026-05-22"
   },
   {
     "id": "task-06",
-    "title": "Review and sign NDA with Nova client",
+    "title": "Sketch logo concepts",
     "stage": "done",
-    "createdAt": "2026-06-09",
-    "completedAt": "2026-06-11"
+    "createdAt": "2026-05-21",
+    "doneAt": "2026-05-26"
   },
   {
     "id": "task-07",
-    "title": "Finalize Q2 budget report",
+    "title": "Pick typeface pairing",
     "stage": "done",
-    "createdAt": "2026-06-10",
-    "completedAt": "2026-06-13"
+    "createdAt": "2026-05-22",
+    "doneAt": "2026-05-27"
   },
   {
     "id": "task-08",
-    "title": "Onboard new designer Léa",
-    "stage": "in-progress",
-    "createdAt": "2026-06-12",
-    "completedAt": null
+    "title": "Define color palette tokens",
+    "stage": "done",
+    "createdAt": "2026-05-23",
+    "doneAt": "2026-05-28"
   },
   {
     "id": "task-09",
-    "title": "Migrate client assets to new server",
-    "stage": "in-progress",
-    "createdAt": "2026-06-13",
-    "completedAt": null
+    "title": "Review NDA with Nova client",
+    "stage": "done",
+    "createdAt": "2026-05-25",
+    "doneAt": "2026-05-29"
   },
   {
     "id": "task-10",
-    "title": "Draft proposal for Capgemini project",
-    "stage": "in-progress",
-    "createdAt": "2026-06-16",
-    "completedAt": null
+    "title": "Redesign homepage hero section",
+    "stage": "done",
+    "createdAt": "2026-05-29",
+    "doneAt": "2026-06-02"
   },
   {
     "id": "task-11",
-    "title": "Schedule user interviews for next sprint",
-    "stage": "todo",
-    "createdAt": "2026-06-17",
-    "completedAt": null
+    "title": "Write copy for services page",
+    "stage": "done",
+    "createdAt": "2026-05-30",
+    "doneAt": "2026-06-03"
   },
   {
     "id": "task-12",
-    "title": "Write technical spec for dashboard feature",
+    "title": "Set up analytics tracking",
+    "stage": "done",
+    "createdAt": "2026-05-31",
+    "doneAt": "2026-06-04"
+  },
+  {
+    "id": "task-13",
+    "title": "Export brand assets for client",
+    "stage": "done",
+    "createdAt": "2026-06-01",
+    "doneAt": "2026-06-05"
+  },
+  {
+    "id": "task-14",
+    "title": "Prepare Monday standup deck",
+    "stage": "done",
+    "createdAt": "2026-06-02",
+    "doneAt": "2026-06-05"
+  },
+  {
+    "id": "task-15",
+    "title": "Finalize Q2 budget report",
+    "stage": "done",
+    "createdAt": "2026-06-04",
+    "doneAt": "2026-06-08"
+  },
+  {
+    "id": "task-16",
+    "title": "Compress hero images for web",
+    "stage": "done",
+    "createdAt": "2026-06-05",
+    "doneAt": "2026-06-09"
+  },
+  {
+    "id": "task-17",
+    "title": "Email the print vendor",
+    "stage": "done",
+    "createdAt": "2026-06-06",
+    "doneAt": "2026-06-10"
+  },
+  {
+    "id": "task-18",
+    "title": "Proof the case study layout",
+    "stage": "done",
+    "createdAt": "2026-06-07",
+    "doneAt": "2026-06-11"
+  },
+  {
+    "id": "task-19",
+    "title": "Update footer links sitewide",
+    "stage": "done",
+    "createdAt": "2026-06-08",
+    "doneAt": "2026-06-12"
+  },
+  {
+    "id": "task-20",
+    "title": "Archive old campaign files",
+    "stage": "done",
+    "createdAt": "2026-06-08",
+    "doneAt": "2026-06-12"
+  },
+  {
+    "id": "task-21",
+    "title": "Build the newsletter template",
+    "stage": "done",
+    "createdAt": "2026-06-10",
+    "doneAt": "2026-06-15"
+  },
+  {
+    "id": "task-22",
+    "title": "Draft social posts for launch",
+    "stage": "done",
+    "createdAt": "2026-06-11",
+    "doneAt": "2026-06-16"
+  },
+  {
+    "id": "task-23",
+    "title": "Pick cover photo for the case study",
+    "stage": "done",
+    "createdAt": "2026-06-12",
+    "doneAt": "2026-06-16"
+  },
+  {
+    "id": "task-24",
+    "title": "Resize banners for ad set",
+    "stage": "done",
+    "createdAt": "2026-06-13",
+    "doneAt": "2026-06-17"
+  },
+  {
+    "id": "task-25",
+    "title": "Fix mobile nav spacing",
+    "stage": "done",
+    "createdAt": "2026-06-15",
+    "doneAt": "2026-06-18"
+  },
+  {
+    "id": "task-26",
+    "title": "Send invoice to Nova client",
+    "stage": "done",
+    "createdAt": "2026-06-16",
+    "doneAt": "2026-06-19"
+  },
+  {
+    "id": "task-27",
+    "title": "Schedule the launch email",
+    "stage": "done",
+    "createdAt": "2026-06-16",
+    "doneAt": "2026-06-19"
+  },
+  {
+    "id": "task-28",
+    "title": "Redesign the pricing page",
+    "stage": "in-progress",
+    "createdAt": "2026-06-15",
+    "doneAt": null
+  },
+  {
+    "id": "task-29",
+    "title": "Wireframe the onboarding flow",
+    "stage": "in-progress",
+    "createdAt": "2026-06-16",
+    "doneAt": null
+  },
+  {
+    "id": "task-30",
+    "title": "Migrate client assets to new server",
+    "stage": "in-progress",
+    "createdAt": "2026-06-17",
+    "doneAt": null
+  },
+  {
+    "id": "task-31",
+    "title": "Schedule user interviews for next sprint",
     "stage": "todo",
     "createdAt": "2026-06-18",
-    "completedAt": null
+    "doneAt": null
+  },
+  {
+    "id": "task-32",
+    "title": "Write technical spec for dashboard feature",
+    "stage": "todo",
+    "createdAt": "2026-06-19",
+    "doneAt": null
   }
 ]

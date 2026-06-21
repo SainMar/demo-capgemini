@@ -4,10 +4,10 @@
  * SOFTENED FOR JSDOM (documented): jsdom has no layout engine, so Recharts'
  * ResponsiveContainer measures 0×0 and renders no SVG paths. We therefore:
  *   1. stub the container's measured box to a fixed size (ResizeObserver + bounding rect),
- *   2. assert LIGHT facts only — the component renders without throwing, an <svg> exists,
- *      and Y headroom is [0, max+1] (asserted via the rendered Y-axis tick "8" for a
- *      max of 7, since recharts emits axis ticks as text). We do NOT assert pixel geometry
- *      or exact path `d` strings (brittle, and partly absent under jsdom).
+ *   2. assert LIGHT facts only — the component renders without throwing and an <svg> exists,
+ *   3. assert Y headroom [0, max+1] via the exported pure helper `yAxisTicks` (deterministic),
+ *      NOT via rendered Y-axis tick text, which jsdom never emits (no layout). We do NOT
+ *      assert pixel geometry or exact path `d` strings (brittle, and partly absent under jsdom).
  *
  * The "no second series" requirement is asserted structurally: only one <path class
  * recharts-line-curve> (a single line) is rendered.
@@ -15,7 +15,7 @@
 import { beforeAll, describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 import type { WeeklyPoint } from '../data/store'
-import { WeeklyProgressChart } from './WeeklyProgressChart'
+import { WeeklyProgressChart, yAxisTicks } from './WeeklyProgressChart'
 
 const DATA: WeeklyPoint[] = [
   { week: '2026-05-11', completed: 2 },
@@ -63,11 +63,9 @@ describe('WeeklyProgressChart (§6 Step 5)', () => {
   })
 
   it('gives the Y axis headroom of [0, max+1] (max 7 → top tick 8)', () => {
-    const { container } = renderChart(DATA)
-    // Recharts renders axis ticks as <text>; with domain [0, 8] a tick labelled "8" exists.
-    const tickTexts = Array.from(container.querySelectorAll('.recharts-yAxis text')).map(
-      (n) => n.textContent,
-    )
-    expect(tickTexts).toContain('8')
+    // Asserted via the exported pure helper, not rendered SVG ticks: jsdom has no layout,
+    // so Recharts' ResponsiveContainer measures 0×0 and never emits the axis tick text.
+    // yAxisTicks is the single source of truth for the YAxis `ticks`/`domain` in the component.
+    expect(yAxisTicks(DATA)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8])
   })
 })

@@ -1,12 +1,22 @@
+import { useState } from 'react'
 import './index.css'
+import { ManagerDashboard } from './components/ManagerDashboard'
+import { TeamTodo } from './components/TeamTodo'
+import type { View } from './components/ViewToggle'
 
 function App() {
+  const [view, setView] = useState<View>('team')
+  const [, setVersion] = useState(0)
+
+  const bump = () => setVersion((v) => v + 1)
+
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900">demo-capgemini</h1>
-        <p className="mt-2 text-gray-500">Skeleton ready — UI will be built during the demo.</p>
-      </div>
+    <div className="min-h-screen bg-slate-50 text-slate-800">
+      {view === 'team' ? (
+        <TeamTodo view={view} onViewChange={setView} bump={bump} />
+      ) : (
+        <ManagerDashboard view={view} onViewChange={setView} />
+      )}
     </div>
   )
 }

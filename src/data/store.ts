@@ -7,14 +7,12 @@ export interface Task {
   title: string
   stage: Stage
   createdAt: string
-  completedAt: string | null
+  doneAt: string | null
 }
 
-export interface StageEvent {
+export interface DoneTombstone {
   taskId: string
-  from: Stage | null
-  to: Stage
-  at: string
+  doneAt: string
 }
 
 export interface WeeklyPoint {
@@ -22,28 +20,12 @@ export interface WeeklyPoint {
   completed: number
 }
 
-const STAGE_ORDER: Stage[] = ['todo', 'in-progress', 'done']
-
 function today(): string {
   return new Date().toISOString().split('T')[0]
 }
 
-function seedEvents(seed: Task[]): StageEvent[] {
-  const log: StageEvent[] = []
-  for (const task of seed) {
-    log.push({ taskId: task.id, from: null, to: 'todo', at: task.createdAt })
-    if (task.stage === 'in-progress' || task.stage === 'done') {
-      log.push({ taskId: task.id, from: 'todo', to: 'in-progress', at: task.createdAt })
-    }
-    if (task.stage === 'done' && task.completedAt) {
-      log.push({ taskId: task.id, from: 'in-progress', to: 'done', at: task.completedAt })
-    }
-  }
-  return log
-}
-
 let tasks: Task[] = rawTasks as Task[]
-let events: StageEvent[] = seedEvents(rawTasks as Task[])
+let tombstones: DoneTombstone[] = []
 
 let idCounter = tasks.reduce((max, t) => {
   const n = Number(t.id.replace(/^task-/, ''))
@@ -61,38 +43,35 @@ export function getTasks(): Task[] {
   return tasks
 }
 
-export function updateTaskStage(id: string, stage: Stage): Task | null {
+export function moveTask(id: string, stage: Stage): Task | null {
   const task = tasks.find((t) => t.id === id)
   if (!task) return null
 
-  const current = task.stage
-  if (STAGE_ORDER.indexOf(stage) <= STAGE_ORDER.indexOf(current)) {
-    return task
-  }
+  if (stage === task.stage) return task
 
-  const at = today()
+  const entering = stage === 'done' && task.stage !== 'done'
+  const leaving = task.stage === 'done' && stage !== 'done'
+
   task.stage = stage
-  if (stage === 'done') {
-    task.completedAt = at
-  }
-  events = [...events, { taskId: id, from: current, to: stage, at }]
+  if (entering) task.doneAt = today()
+  if (leaving) task.doneAt = null
+
   tasks = [...tasks]
   return task
 }
 
-export function addTask(title: string): Task | null {
+export function addTask(title: string, stage: Stage = 'todo'): Task | null {
   const t = title.trim()
   if (t === '') return null
 
   const task: Task = {
     id: nextId(),
     title: t,
-    stage: 'todo',
+    stage,
     createdAt: today(),
-    completedAt: null,
+    doneAt: stage === 'done' ? today() : null,
   }
   tasks = [...tasks, task]
-  events = [...events, { taskId: task.id, from: null, to: 'todo', at: task.createdAt }]
   return task
 }
 
@@ -109,12 +88,27 @@ export function renameTask(id: string, title: string): Task | null {
 }
 
 export function deleteTask(id: string): void {
+  const task = tasks.find((t) => t.id === id)
+  if (!task) return
+
+  if (task.stage === 'done' && task.doneAt) {
+    tombstones = [...tombstones, { taskId: id, doneAt: task.doneAt }]
+  }
   tasks = tasks.filter((t) => t.id !== id)
+}
+
+function completions(): Array<{ doneAt: string }> {
+  return [
+    ...tasks
+      .filter((t) => t.stage === 'done' && t.doneAt)
+      .map((t) => ({ doneAt: t.doneAt! })),
+    ...tombstones,
+  ]
 }
 
 export function doneThisWeek(): number {
   const currentWeek = weekKey(new Date())
-  return events.filter((e) => e.to === 'done' && weekKey(new Date(e.at)) === currentWeek).length
+  return completions().filter((c) => weekKey(new Date(c.doneAt)) === currentWeek).length
 }
 
 export function inProgressCount(): number {
@@ -124,9 +118,8 @@ export function inProgressCount(): number {
 export function weeklyProgress(): WeeklyPoint[] {
   const byWeek: Record<string, number> = {}
 
-  for (const event of events) {
-    if (event.to !== 'done') continue
-    const key = weekKey(new Date(event.at))
+  for (const c of completions()) {
+    const key = weekKey(new Date(c.doneAt))
     byWeek[key] = (byWeek[key] ?? 0) + 1
   }
 
